@@ -1,0 +1,66 @@
+{% extends 'base.html'%} {% block content%}
+<div class="container p-5 mt-5 d-flex justify-content-center">
+  <h1 class="btn-bold">
+    {%block title%}Balança, mas nunca para!{% endblock %}
+  </h1>
+</div>
+<div
+  class="container mt-5 p-5 w-50"
+  style="
+  box-shadow: 10px 10px 5px #aaaaaa;
+  background-color: rgba(0, 0, 255, 0.1);
+  border-radius: 20px;
+  "
+  >
+  <div class="d-flex justify-content-center">
+    <div
+      class="col-4 p-5 w-75"
+      style="
+      height: 70px;
+      background-color: hsl(260deg 8% 39% / 38%);
+      border-style: inset;
+      border-radius: 30px;
+      "
+      >
+      <div class="container-fluid d-flex justify-content-center" id="balanca">
+        {% if name %}
+        <h1 class="text-center btn-bold" style="color: black">{{ name }}</h1>
+        {% else %}
+        <h1 class="text-center btn-bold" style="color: black">0.000 Kg</h1>
+        {% endif %}
+      </div>
+    </div>
+  </div
+  </div>
+  <!--- button -->
+      <div class="d-flex justify-content-between">
+        <button
+          onclick="window.location.href='{{ url_for( 'balanca.mqtt') }}';"
+          type="button"
+          class="btn btn-circle btn-xl btn-bold"
+          style="
+          color: white;
+          background-color: #2e8f62;
+          box-shadow: 3px 3px 5px #aaaaaa;
+          "
+          >
+          Ok
+        </button>
+        <button
+          onclick="window.location.href='{{ url_for( 'balanca.index') }}';"
+          type="button"
+          class="btn btn-circle btn-xl btn-bold"
+          style="
+          color: white;
+          background-color: #c43838;
+          box-shadow: 3px 3px 5px #aaaaaa;
+          "
+          >
+          R
+        </button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+{% endblock %}
